@@ -418,7 +418,7 @@ class _Window(AbstractWindow):
                 evt_orientation = event.orientation()
             else:
                 delta = event.angleDelta()
-                evt_orientation = event.qt4Orientation()
+                evt_orientation = event.qt4O()
             
             mouse_wheel = delta / float(8 * degrees_per_step)
             mouse_wheel_axis = MOUSE_WHEEL_AXIS_MAP[evt_orientation]
