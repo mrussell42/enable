@@ -416,8 +416,8 @@ class _Window(AbstractWindow):
             if is_qt4:
                 delta = event.delta()
             else:
-			    delta = event.angleDelta()
-				
+                delta = event.angleDelta()
+            
             mouse_wheel = delta / float(8 * degrees_per_step)
             mouse_wheel_axis = MOUSE_WHEEL_AXIS_MAP[event.orientation()]
             if mouse_wheel_axis == 'horizontal':
