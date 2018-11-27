@@ -415,21 +415,15 @@ class _Window(AbstractWindow):
             degrees_per_step = 15.0
             if is_qt4:
                 delta = event.delta()
-                mouse_wheel = delta / float(8 * degrees_per_step)
-                mouse_wheel_axis = MOUSE_WHEEL_AXIS_MAP[event.orientation()]
-                if mouse_wheel_axis == 'horizontal':
-                    mouse_wheel_delta = (delta, 0)
-                else:
-                    mouse_wheel_delta = (0, delta)
             else:
-                delta = event.pixelDelta()
-                mouse_wheel_delta = (delta.x(), delta.y())
-                if abs(mouse_wheel_delta[0]) > abs(mouse_wheel_delta[1]):
-                    mouse_wheel = mouse_wheel_delta[0] / float(8 * degrees_per_step)
-                    mouse_wheel_axis = 'horizontal'
-                else:
-                    mouse_wheel = mouse_wheel_delta[1] / float(8 * degrees_per_step)
-                    mouse_wheel_axis = 'vertical'
+			    delta = event.angleDelta()
+				
+            mouse_wheel = delta / float(8 * degrees_per_step)
+            mouse_wheel_axis = MOUSE_WHEEL_AXIS_MAP[event.orientation()]
+            if mouse_wheel_axis == 'horizontal':
+                mouse_wheel_delta = (delta, 0)
+            else:
+                mouse_wheel_delta = (0, delta)
         else:
             mouse_wheel = 0
             mouse_wheel_delta = (0, 0)
