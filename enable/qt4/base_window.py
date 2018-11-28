@@ -417,10 +417,9 @@ class _Window(AbstractWindow):
                 delta = event.delta()
                 evt_orientation = event.orientation()
             else:
-                delta = event.angleDelta()
+                delta = event.angleDelta().y()
                 # Hack because qt5 mouse events don't have an orientation
                 evt_orientation = QtCore.Qt.Orientation(QtCore.Qt.Vertical)
-            
             mouse_wheel = delta / float(8 * degrees_per_step)
             mouse_wheel_axis = MOUSE_WHEEL_AXIS_MAP[evt_orientation]
             if mouse_wheel_axis == 'horizontal':
